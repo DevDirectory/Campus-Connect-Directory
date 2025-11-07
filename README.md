@@ -1,1 +1,1 @@
-# -Campus-Connect-Directory-
+# Campus-Connect-Directory-
