@@ -1,3 +1,8 @@
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=D9BED1&height=120&section=header" alt="header"/> 
+
+<a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&weight=500&size=25&duration=4500&pause=500&color=D9BED1&width=435&lines=Hello%2C+it's+Daria+Stanilevici;Business+Analyst" alt="Business Analyst"/>
+</a>
 # Campus-Connect-Directory
 
 **Campus Connect Directory**  is  a client-side web application designed to help students browse and search university clubs and events in an interactive, user-friendly way. It provides a dynamic single-page experience using only HTML, CSS, and JavaScript.  
@@ -24,3 +29,4 @@ Key focus areas include:
 - Repository  created ✅  
 - README  prepared ✅  
 - Code  implementation -  HTML structure implemented other features planned 
+<img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=D9BED1&height=120&section=footer" alt="footer"/>
