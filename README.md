@@ -1,5 +1,5 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=D9BED1&height=120&section=header" alt="header"/> 
-
+[Click here to view the website](https://edula23.github.io/text-typing/)
 
 ![Welcome](assets/gif1.gif)
 
