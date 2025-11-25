@@ -1,10 +1,9 @@
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=D9BED1&height=120&section=header" alt="header"/> 
-[Click here to view the website](https://edula23.github.io/text-typing/)
+
 
 ![Welcome](assets/gif1.gif)
 
 
-# Campus-Connect-Directory
 
 **Campus Connect Directory**  is  a client-side web application designed to help students browse and search university clubs and events in an interactive, user-friendly way. It provides a dynamic single-page experience using only HTML, CSS, and JavaScript.  
 
