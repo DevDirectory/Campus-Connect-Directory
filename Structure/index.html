@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Campus Club Directory</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Campus Club Directory</div>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search clubs, events..." />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a onclick="showSection('home')" class="active">Home</a>
+        <a onclick="showSection('clubs')">Clubs</a>
+        <a onclick="showSection('events')">Events</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px">
+        <div class="theme-toggle" id="themeToggle">
+          <div class="slider"></div>
+        </div>
+        <button class="account-btn" onclick="openModal('authModal')">Account</button>
+        <span class="user-name" id="userWelcome"></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a onclick="showSection('home'); closeMobileMenu()">Home</a>
+    <a onclick="showSection('clubs'); closeMobileMenu()">Clubs</a>
+    <a onclick="showSection('events'); closeMobileMenu()">Events</a>
+    <div style="margin:20px auto;width:85%">
+      <input type="text" id="mobileSearch" placeholder="Search..." style="width:100%;padding:16px;border-radius:50px;padding-left:20px;border:none;outline:none;background:rgba(255,255,255,0.2)" />
+    </div>
+  </div>
+
+  <!-- Detailed Home Page -->
+  <section id="home" class="section active">
+    <div class="hero">
+      <h1>Campus Club Directory</h1>
+      <p>Welcome to the central hub for all student clubs and campus events. Discover new interests, connect with like-minded people, and stay updated with everything happening on campus.</p>
+      
+      <div class="cta-buttons">
+        <a class="btn btn-primary" onclick="showSection('clubs')">Explore Clubs</a>
+        <a class="btn btn-outline" onclick="showSection('events')">Upcoming Events</a>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <i class="fas fa-users"></i>
+        <h3>Find Your Community</h3>
+        <p>Browse through dozens of active student clubs from technology to arts, sports, and culture.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Never Miss an Event</h3>
+        <p>Stay updated with all upcoming workshops, competitions, cultural nights, and social gatherings.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Contribute</h3>
+        <p>Add your own club or register new events to help grow the campus community.</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <h2>Campus at a Glance</h2>
+      <div class="stat-numbers">
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>Active Clubs</p>
+        </div>
+        <div class="stat-item">
+          <h3>200+</h3>
+          <p>Events Per Year</p>
+        </div>
+        <div class="stat-item">
+          <h3>5000+</h3>
+          <p>Student Participants</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing-section">
+      <h3>Join the Movement</h3>
+      <p>Your campus experience is what you make it. Get involved, make friends, develop skills, and create memories that last a lifetime.</p>
+      <p>There's a place for everyone here — find yours today.</p>
+    </div>  
+  </section>
+
+  <!-- Clubs Section with Button Filter -->
+  <section id="clubs" class="section">
+    <h2>Student Clubs</h2>
+    <div class="filter-bar">
+      <button class="topic-btn active" data-topic="all">All</button>
+      <button class="topic-btn" data-topic="Technology">Technology</button>
+      <button class="topic-btn" data-topic="Arts">Arts</button>
+      <button class="topic-btn" data-topic="Sports">Sports</button>
+      <button class="topic-btn" data-topic="Culture">Culture</button>
+      <button class="topic-btn" data-topic="Entrepreneurship">Entrepreneurship</button>
+      <button class="topic-btn" data-topic="Environment">Environment</button>
+      <button class="topic-btn" data-topic="Other">Other</button>
+    </div>
+    <div class="cards" id="clubList"></div>
+    <div class="add-btn" onclick="openAddModal('club')"><i class="fas fa-plus"></i> Add Club</div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="section">
+    <h2>Upcoming Events</h2>
+    <div class="cards" id="eventList"></div>
+    <div class="add-btn" onclick="openAddModal('event')"><i class="fas fa-plus"></i> Add Event</div>
+  </section>
+
+  <!-- Modals -->
+  <div id="clubModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('clubModal')">x</span>
+      <h2 id="clubName"></h2>
+      <div class="modal-info">
+        <p><strong>President:</strong> <span id="clubPresident"></span></p>
+        <p><strong>Members:</strong> <span id="clubMembers"></span></p>
+        <p><strong>Founded:</strong> <span id="clubFounded"></span></p>
+        <p id="clubDesc" style="margin-top:25px"></p>
+      </div>
+
+      <div class="social-links">
+        <h3>Connect With Us</h3>
+        <a href="#" id="clubTelegram" target="_blank"><i class="fab fa-telegram"></i> Join Telegram Channel</a>
+        <a href="#" id="clubLinkedin" target="_blank"><i class="fab fa-linkedin"></i> Follow on LinkedIn</a>
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;padding:16px;margin-top:20px">Join Club</button>
+    </div>
+  </div>
+
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('eventModal')">x</span>
+      <h2 id="eventName"></h2>
+      <div class="modal-info">
+        <p><strong>Date:</strong> <span id="eventDate"></span></p>
+        <p><strong>Time:</strong> <span id="eventTime"></span></p>
+        <p><strong>Location:</strong> <span id="eventLocation"></span></p>
+        <p style="margin-top:20px" id="eventDesc"></p>
+      </div>
+      <button class="btn btn-primary" style="width:100%;padding:16px;margin-top:25px">RSVP Now</button>
+    </div>
+  </div>
+
+  <div id="addModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('addModal')">x</span>
+      <h2 id="addModalTitle">Add New Club</h2>
+      <form id="addForm">
+        <input type="text" id="addName" placeholder="Name" required />
+        <textarea id="addDesc" placeholder="Description" required></textarea>
+        <input type="text" id="addExtra1" placeholder="President Name / Date" required />
+        <input type="text" id="addExtra2" placeholder="Members / Time" />
+        <input type="text" id="addExtra3" placeholder="Founded / Location" />
+        <select id="addTopic">
+          <option value="Technology">Technology</option>
+          <option value="Arts">Arts</option>
+          <option value="Sports">Sports</option>
+          <option value="Culture">Culture</option>
+          <option value="Entrepreneurship">Entrepreneurship</option>
+          <option value="Environment">Environment</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="addTelegram" placeholder="Telegram Link (optional)" />
+        <input type="text" id="addLinkedin" placeholder="LinkedIn Link (optional)" />
+        <input type="hidden" id="addType" value="club">
+        <button type="submit" style="margin-top:20px;padding:16px;background:var(--primary);color:black;border:none;border-radius:16px;font-weight:bold;width:100%">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal('authModal')">x</span>
+      <h2 id="modalTitle">Welcome Back!</h2>
+      <form id="authForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <div id="emailField" style="display:none">
+          <input type="email" id="email" placeholder="Email" />
+        </div>
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" style="margin-top:25px;padding:16px;background:var(--primary);color:black;border:none;border-radius:16px;font-weight:bold;width:100%">Login</button>
+      </form>
+      <p style="margin-top:20px">
+        <a href="#" style="color:var(--primary);text-decoration:none" onclick="switchMode()">
+          <span id="switchText">Don't have an account? Sign Up</span>
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Campus Club Directory. All rights reserved.</p>
+    <p>
+      <a href="#">Privacy Policy</a> • 
+      <a href="#">Terms of Service</a> • 
+      <a href="#">Contact</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
