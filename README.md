@@ -2,6 +2,8 @@
 
 
 # Design and Development of web-based Campus Connect Directory : incase AASTU
+## 🚀 Live Demo: https://dancing-cupcake-342928.netlify.app/
+
 ## ✨ Overview
 A lightweight, client‑side web app for exploring student clubs and campus events. Add new clubs/events, filter by topics, search fast, and switch between dark/light themes with persistence.
 
