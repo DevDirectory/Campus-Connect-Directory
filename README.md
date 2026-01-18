@@ -1,4 +1,4 @@
-![Welcome](assets/gif1.gif)
+![Welcome](Assets/gif1.gif)
 
 
 # Design and Development of web-based Campus Connect Directory : incase AASTU
